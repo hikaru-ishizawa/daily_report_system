@@ -25,7 +25,6 @@ public class ReportConverter {
                 rv.getContent(),
                 rv.getCreatedAt(),
                 rv.getUpdatedAt());
-
     }
 
     /**
@@ -79,6 +78,5 @@ public class ReportConverter {
         r.setUpdatedAt(rv.getUpdatedAt());
 
     }
-
 
 }
