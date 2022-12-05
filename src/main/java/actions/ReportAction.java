@@ -114,7 +114,8 @@ public class ReportAction extends ActionBase {
                     getRequestParam(AttributeConst.REP_TITLE),
                     getRequestParam(AttributeConst.REP_CONTENT),
                     null,
-                    null);
+                    null,
+                    0);
 
             //日報情報登録
             List<String> errors = service.create(rv);
@@ -235,4 +236,31 @@ public class ReportAction extends ActionBase {
             }
         }
     }
+
+    public void like() throws ServletException, IOException {
+
+      //idを条件に日報データを取得する
+        ReportView rv = service.findOne(toNumber(getRequestParam(AttributeConst.REP_ID)));
+
+        if (rv == null) {
+            //該当の日報データが存在しない場合はエラー画面を表示
+            forward(ForwardConst.FW_ERR_UNKNOWN);
+
+        } else {
+
+            putRequestScope(AttributeConst.REPORT, rv); //取得した日報データ
+
+            int i = rv.getLikeCount();
+            i++;
+            rv.setLikeCount(i);
+            service.update(rv);
+
+            //詳細画面を表示
+            redirect(ForwardConst.ACT_REP, ForwardConst.CMD_SHOW, rv.getId());
+        }
+
+
+    }
+
+
 }

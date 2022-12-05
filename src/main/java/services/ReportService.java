@@ -154,4 +154,23 @@ public class ReportService extends ServiceBase {
 
     }
 
+//    /**
+//     * いいねを1件登録する  //作業中
+//     * @param rv 日報データ
+//     */
+//    private void createLike(ReportView rv) {
+//
+//        Report r = em.findOneInternal(request.getParameter("report.id"));
+//
+//        int i = r.getLikeCount();
+//        i++;
+//
+//        r.setLikeCount(i);
+//        em.getTransaction().begin();
+//        em.persist(ReportConverter.toModel(rv));
+//        em.getTransaction().commit();
+//        em.close();
+//
+//    }
+
 }

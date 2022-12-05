@@ -27,7 +27,7 @@ public class ReportView {
     /**
      * 日報を登録した従業員
      */
-    private EmployeeView employee;  //Employee employeeじゃだめ？
+    private EmployeeView employee;
 
     /**
      * いつの日報かを示す日付
@@ -54,5 +54,10 @@ public class ReportView {
      * 更新日時
      */
     private LocalDateTime updatedAt;
+
+    /**
+     * いいね数カウント
+     */
+    private Integer likeCount;
 }
 
